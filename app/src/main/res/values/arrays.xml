@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="frequency_options">
+        <item>Monthly</item>
+        <item>Weekly</item>
+        <item>Yearly</item>
+        <item>Daily</item>
+    </string-array>
+
+    <string-array name="category_options">
+        <item>Rent</item>
+        <item>Subscription</item>
+        <item>Utilities</item>
+        <item>Insurance</item>
+        <item>Other</item>
+    </string-array>
+</resources>
