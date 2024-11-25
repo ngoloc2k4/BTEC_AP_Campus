@@ -18,6 +18,8 @@ import com.google.android.material.imageview.ShapeableImageView;
 
 import vn.btec.campus.R;
 import vn.btec.campus.activities.LoginActivity;
+import vn.btec.campus.activities.BudgetSettingsActivity;
+import vn.btec.campus.activities.NotificationsActivity;
 import vn.btec.campus.utils.SessionManager;
 
 public class ProfileFragment extends Fragment {
@@ -62,14 +64,14 @@ public class ProfileFragment extends Fragment {
         // Set click listeners
         layoutBudgetSettings.setOnClickListener(v -> {
             // Navigate to budget settings
-            Toast.makeText(requireContext(), "Budget Settings clicked", Toast.LENGTH_SHORT).show();
-            // TODO: Implement navigation to budget settings
+            Intent intent = new Intent(requireContext(), BudgetSettingsActivity.class);
+            startActivity(intent);
         });
 
         layoutNotifications.setOnClickListener(v -> {
             // Navigate to notifications settings
-            Toast.makeText(requireContext(), "Notifications clicked", Toast.LENGTH_SHORT).show();
-            // TODO: Implement navigation to notifications settings
+            Intent intent = new Intent(requireContext(), NotificationsActivity.class);
+            startActivity(intent);
         });
 
         layoutAbout.setOnClickListener(v -> {

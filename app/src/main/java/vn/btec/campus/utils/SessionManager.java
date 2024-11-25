@@ -8,6 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import vn.btec.campus.models.User;
+import vn.btec.campus.database.DatabaseManager;
 
 public class SessionManager {
     private static final String PREF_NAME = "CampusPrefs";
@@ -28,11 +29,13 @@ public class SessionManager {
     private SharedPreferences pref;
     private SharedPreferences.Editor editor;
     private Context context;
+    private DatabaseManager databaseManager;
 
     public SessionManager(Context context) {
         this.context = context;
         pref = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         editor = pref.edit();
+        databaseManager = new DatabaseManager(context);
     }
 
     public void createLoginSession(String email, boolean rememberMe) {
@@ -44,7 +47,7 @@ public class SessionManager {
                     editor.putBoolean(KEY_IS_LOGGED_IN, true);
                     editor.putString(KEY_EMAIL, email);
                     editor.putString(KEY_USERNAME, user.getString("username"));
-                    editor.putString(KEY_CURRENT_USER_ID, user.getString("id"));
+                    editor.putLong(KEY_CURRENT_USER_ID, user.getLong("id"));
                     editor.putBoolean(KEY_REMEMBER_ME, rememberMe);
                     editor.commit();
                     break;
@@ -56,37 +59,42 @@ public class SessionManager {
     }
 
     public boolean validateLogin(String email, String password) {
-        try {
-            JSONArray users = new JSONArray(pref.getString(KEY_REGISTERED_USERS, "[]"));
-            for (int i = 0; i < users.length(); i++) {
-                JSONObject user = users.getJSONObject(i);
-                if (user.getString("email").equals(email) && 
-                    user.getString("password").equals(password)) {
-                    return true;
-                }
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return false;
+        databaseManager.open();
+        boolean isValid = databaseManager.validateUserCredentials(email, password);
+        databaseManager.close();
+        return isValid;
     }
 
     public boolean registerUser(User user, String password) {
         try {
-            // Check if email already exists
-            JSONArray users = new JSONArray(pref.getString(KEY_REGISTERED_USERS, "[]"));
-            for (int i = 0; i < users.length(); i++) {
-                if (users.getJSONObject(i).getString("email").equals(user.getEmail())) {
-                    return false; // Email already exists
-                }
+            // Check if email already exists in database
+            databaseManager.open();
+            User existingUser = databaseManager.getUser(user.getEmail());
+            if (existingUser != null) {
+                databaseManager.close();
+                return false; // Email already exists
             }
 
-            // Add new user
+            // Set the password before creating the user
+            user.setPassword(password);
+            
+            // Store user in database
+            long userId = databaseManager.createUser(user);
+            databaseManager.close();
+
+            if (userId == -1) {
+                return false; // Database insertion failed
+            }
+
+            // Update user object with generated ID
+            user.setId(userId);
+
+            // Store minimal user info in SharedPreferences
+            JSONArray users = new JSONArray(pref.getString(KEY_REGISTERED_USERS, "[]"));
             JSONObject newUser = new JSONObject();
-            newUser.put("id", user.getId());
+            newUser.put("id", userId);
             newUser.put("username", user.getUsername());
             newUser.put("email", user.getEmail());
-            newUser.put("password", password);
 
             users.put(newUser);
             editor.putString(KEY_REGISTERED_USERS, users.toString());
@@ -123,6 +131,10 @@ public class SessionManager {
 
     public String getCurrentUserId() {
         return pref.getString(KEY_CURRENT_USER_ID, null);
+    }
+
+    public Long getCurrentUserIdAsLong() {
+        return pref.getLong(KEY_CURRENT_USER_ID, -1L);
     }
 
     // Budget related methods

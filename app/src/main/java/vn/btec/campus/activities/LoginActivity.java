@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         // If user is already logged in and remember me is enabled, redirect to MainActivity
         if (sessionManager.isLoggedIn() && sessionManager.isRememberMeEnabled()) {
             startActivity(new Intent(LoginActivity.this, MainActivity.class)
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
             finish();
             return;
         }
@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
             if (sessionManager.validateLogin(email, password)) {
                 sessionManager.createLoginSession(email, rememberMe);
                 startActivity(new Intent(LoginActivity.this, MainActivity.class)
-                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
                 finish();
             } else {
                 Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show();

@@ -102,9 +102,8 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-        // Create new userz with a unique ID
-        String userId = UUID.randomUUID().toString();
-        User newUser = new User(userId, fullName, email, ""); // Empty string for default profile picture path
+        // Create new user with a unique ID
+        User newUser = new User(null, fullName, email, password, ""); // ID will be set by database
         
         // Attempt registration
         if (sessionManager.registerUser(newUser, password)) {
