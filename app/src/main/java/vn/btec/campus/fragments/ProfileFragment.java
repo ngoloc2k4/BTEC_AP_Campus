@@ -21,6 +21,7 @@ import vn.btec.campus.activities.LoginActivity;
 import vn.btec.campus.activities.BudgetSettingsActivity;
 import vn.btec.campus.activities.NotificationsActivity;
 import vn.btec.campus.utils.SessionManager;
+import vn.btec.campus.utils.LanguageUtils;
 
 public class ProfileFragment extends Fragment {
 
@@ -30,12 +31,13 @@ public class ProfileFragment extends Fragment {
     private View layoutBudgetSettings;
     private View layoutNotifications;
     private View layoutAbout;
+    private View layoutLanguage;
     private MaterialButton btnSignOut;
     private SessionManager sessionManager;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                           Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 
@@ -49,17 +51,14 @@ public class ProfileFragment extends Fragment {
         ivProfilePic = view.findViewById(R.id.ivProfilePic);
         tvUsername = view.findViewById(R.id.tvUsername);
         tvEmail = view.findViewById(R.id.tvEmail);
-        layoutBudgetSettings = view.findViewById(R.id.layoutBudgetSettings);
-        layoutNotifications = view.findViewById(R.id.layoutNotifications);
-        layoutAbout = view.findViewById(R.id.layoutAbout);
+        layoutBudgetSettings = view.findViewById(R.id.budgetSettingsLayout);
+        layoutNotifications = view.findViewById(R.id.notificationsLayout);
+        layoutLanguage = view.findViewById(R.id.languageSettingsLayout);
         btnSignOut = view.findViewById(R.id.btnSignOut);
 
         // Set actual user data
         tvUsername.setText(sessionManager.getUsername());
         tvEmail.setText(sessionManager.getEmail());
-        
-        // Set temporary profile icon
-        ivProfilePic.setImageResource(R.drawable.ic_profile_placeholder);
 
         // Set click listeners
         layoutBudgetSettings.setOnClickListener(v -> {
@@ -74,13 +73,8 @@ public class ProfileFragment extends Fragment {
             startActivity(intent);
         });
 
-        layoutAbout.setOnClickListener(v -> {
-            // Show about dialog
-            new MaterialAlertDialogBuilder(requireContext())
-                    .setTitle("About")
-                    .setMessage("Campus Budget Tracker\nVersion 1.0\n\nTrack your expenses and manage your budget efficiently.")
-                    .setPositiveButton("OK", null)
-                    .show();
+        layoutLanguage.setOnClickListener(v -> {
+            showLanguageDialog();
         });
 
         btnSignOut.setOnClickListener(v -> {
@@ -103,4 +97,26 @@ public class ProfileFragment extends Fragment {
             Toast.makeText(requireContext(), "Profile picture update will be available soon", Toast.LENGTH_SHORT).show();
         });
     }
+
+    private void showLanguageDialog() {
+        String[] languages = {"English", "Tiếng Việt"};
+        String currentLang = LanguageUtils.getCurrentLanguage(requireContext());
+
+        int selectedIndex = currentLang.equals("en") ? 0 : 1;
+
+        new MaterialAlertDialogBuilder(requireContext())
+                .setTitle(R.string.language)
+                .setSingleChoiceItems(languages, selectedIndex, (dialog, which) -> {
+                    String selectedLang = which == 0 ? "en" : "vi";
+                    if (!selectedLang.equals(currentLang)) {
+                        LanguageUtils.setLocale(requireActivity(), selectedLang);
+                        requireActivity().recreate();
+                    }
+                    dialog.dismiss();
+                })
+                .show();
+    }
+
+
+
 }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +16,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import vn.btec.campus.R;
 import vn.btec.campus.utils.SessionManager;
+import vn.btec.campus.utils.LanguageUtils;
 
 public class LoginActivity extends AppCompatActivity {
     private TextInputLayout tilEmail, tilPassword;
@@ -38,6 +40,10 @@ public class LoginActivity extends AppCompatActivity {
             finish();
             return;
         }
+
+        // Initialize language button click listener
+        ImageButton btnLanguage = findViewById(R.id.btnLanguage);
+        btnLanguage.setOnClickListener(v -> showLanguageDialog());
 
         initializeViews();
         setupListeners();
@@ -86,5 +92,23 @@ public class LoginActivity extends AppCompatActivity {
         tvRegister.setOnClickListener(v -> {
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
         });
+    }
+
+    private void showLanguageDialog() {
+        String[] languages = {"English", "Tiếng Việt"};
+        String currentLang = LanguageUtils.getCurrentLanguage(this);
+        int selectedIndex = currentLang.equals("en") ? 0 : 1;
+
+        new android.app.AlertDialog.Builder(this)
+                .setTitle(R.string.language)
+                .setSingleChoiceItems(languages, selectedIndex, (dialog, which) -> {
+                    String selectedLang = which == 0 ? "en" : "vi";
+                    if (!selectedLang.equals(currentLang)) {
+                        LanguageUtils.setLocale(this, selectedLang);
+                        recreate();
+                    }
+                    dialog.dismiss();
+                })
+                .show();
     }
 }

@@ -47,7 +47,7 @@ public class SessionManager {
                     editor.putBoolean(KEY_IS_LOGGED_IN, true);
                     editor.putString(KEY_EMAIL, email);
                     editor.putString(KEY_USERNAME, user.getString("username"));
-                    editor.putLong(KEY_CURRENT_USER_ID, user.getLong("id"));
+                    editor.putString(KEY_CURRENT_USER_ID, user.getString("id"));
                     editor.putBoolean(KEY_REMEMBER_ME, rememberMe);
                     editor.commit();
                     break;
@@ -131,10 +131,6 @@ public class SessionManager {
 
     public String getCurrentUserId() {
         return pref.getString(KEY_CURRENT_USER_ID, null);
-    }
-
-    public Long getCurrentUserIdAsLong() {
-        return pref.getLong(KEY_CURRENT_USER_ID, -1L);
     }
 
     // Budget related methods

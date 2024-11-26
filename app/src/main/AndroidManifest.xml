@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name=".CampusApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -11,9 +12,9 @@
         android:roundIcon="@mipmap/app_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Campus"
-        tools:targetApi="31">
+        android:enableOnBackInvokedCallback="true">
 
-        <!-- MainActivity is main activity to launch app -->
+        <!-- MainActivity is the main activity to launch app -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -32,16 +33,16 @@
             android:name=".activities.RegisterActivity"
             android:exported="false" />
 
-        <activity android:name=".activities.MainActivity"
+        <activity
+            android:name=".activities.BudgetSettingsActivity"
             android:exported="false" />
 
-        <activity android:name=".activities.BudgetSettingsActivity"
+        <activity
+            android:name=".activities.NotificationSettingsActivity"
             android:exported="false" />
 
-        <activity android:name=".activities.NotificationSettingsActivity"
-            android:exported="false" />
-
-        <activity android:name=".activities.NotificationsActivity"
+        <activity
+            android:name=".activities.NotificationsActivity"
             android:exported="false" />
 
     </application>
