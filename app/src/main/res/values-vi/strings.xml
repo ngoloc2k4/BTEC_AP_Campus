@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CAMPUS</string>
+    
+    <!-- Login & Register -->
+    <string name="login">Đăng nhập</string>
+    <string name="register">Đăng ký</string>
+    <string name="email">Email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="username">Tên người dùng</string>
+    <string name="confirm_password">Xác nhận mật khẩu</string>
+    
+    <!-- Profile & Settings -->
+    <string name="profile">Hồ sơ</string>
+    <string name="settings">Cài đặt</string>
+    <string name="language">Ngôn ngữ</string>
+    <string name="english">Tiếng Anh</string>
+    <string name="vietnamese">Tiếng Việt</string>
+    <string name="change_language">Thay đổi ngôn ngữ</string>
+    <string name="logout">Đăng xuất</string>
+    
+    <!-- Categories -->
+    <string name="categories">Danh mục</string>
+    <string name="add_category">Thêm danh mục</string>
+    <string name="category_name">Tên danh mục</string>
+    <string name="category_type">Loại danh mục</string>
+    
+    <!-- Income & Expense -->
+    <string name="income">Thu nhập</string>
+    <string name="expense">Chi tiêu</string>
+    <string name="amount">Số tiền</string>
+    <string name="date">Ngày</string>
+    <string name="description">Mô tả</string>
+    <string name="add_income">Thêm thu nhập</string>
+    <string name="add_expense">Thêm chi tiêu</string>
+    
+    <!-- Messages -->
+    <string name="msg_login_success">Đăng nhập thành công</string>
+    <string name="msg_login_failed">Đăng nhập thất bại</string>
+    <string name="msg_register_success">Đăng ký thành công</string>
+    <string name="msg_register_failed">Đăng ký thất bại</string>
+    <string name="msg_passwords_not_match">Mật khẩu không khớp</string>
+    <string name="msg_field_required">Trường này là bắt buộc</string>
+    <string name="msg_language_changed">Thay đổi ngôn ngữ thành công</string>
+    <string name="apply">Áp dụng</string>
+    <string name="cancel">Hủy</string>
+</resources>
