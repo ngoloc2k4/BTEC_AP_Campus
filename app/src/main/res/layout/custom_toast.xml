@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:background="#333333"
+    android:id="@+id/custom_toast_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/toast_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/icon_x" /> <!-- Replace with your icon -->
+
+    <TextView
+        android:id="@+id/toast_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="Custom Toast Message" />
+
+</LinearLayout>

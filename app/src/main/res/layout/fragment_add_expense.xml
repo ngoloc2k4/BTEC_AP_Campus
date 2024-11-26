@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+<!--   * Add toolbar for page-->
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/muted_red"
+        android:id="@+id/app_toolbar"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="Add Expense"
+        app:titleTextColor="@color/white"
+        >
+    </androidx.appcompat.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/amountEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:hint="Amount" />
+
+    <EditText
+        android:id="@+id/descriptionEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Description" />
+
+    <EditText
+        android:id="@+id/dateEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Expense" />
+
+</LinearLayout>

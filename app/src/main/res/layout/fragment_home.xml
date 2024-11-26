@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+
+            <TextView
+                android:id="@+id/tv_name"
+
+                android:textColor="@android:color/darker_gray"
+                android:textSize="12sp"
+                android:text="Jane Nguyen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+
+
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:src="@drawable/icon_x"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:background="@drawable/shape_border"
+            android:padding="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="120dp">
+
+            <TextView
+                android:textStyle="italic"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:text="VISA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:id="@+id/tvFullname"
+                android:text="DINH VAN DONG"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:textStyle="italic"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:id="@+id/tvBalance"
+                android:text="1,200,000 VND"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_marginLeft="20dp"
+                android:id="@+id/btnAddExpense"
+                android:text="Add Expense"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btnDisplay"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/btnAddExpense"
+                android:text="Display All"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_marginBottom="10dp"
+
+                android:layout_marginTop="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:layout_centerHorizontal="true"
+
+                        android:background="@drawable/shape_border_blue"
+                        android:layout_margin="20dp"
+                        android:id="@+id/category1"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp">
+
+                        <ImageView
+                            android:id="@+id/img1"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/item1"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:textAlignment="center"
+                        android:layout_below="@id/category1"
+                        android:text="Mua sắm"
+                        android:textSize="10sp"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
+
+
+
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:background="@drawable/shape_border_green"
+
+                        android:layout_margin="20dp"
+                        android:id="@+id/category2"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp">
+
+                        <ImageView
+                            android:id="@+id/img2"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/item2"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+
+
+
+                    </RelativeLayout>
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:textSize="10sp"
+
+
+                        android:layout_below="@id/category2"
+                        android:text="Tiền trả ngân hàng"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:background="@drawable/shape_border_grey"
+
+                        android:layout_margin="20dp"
+                        android:id="@+id/category3"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp">
+
+                        <ImageView
+                            android:id="@+id/img3"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/item3"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:textSize="10sp"
+
+                        android:layout_below="@id/category3"
+                        android:text="Tiền lương"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </RelativeLayout>
+
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <RelativeLayout
+                        android:background="@drawable/shape_border_orange"
+
+                        android:layout_margin="20dp"
+                        android:id="@+id/category4"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp">
+
+                        <ImageView
+                            android:id="@+id/img4"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/item4"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:textSize="10sp"
+
+                        android:layout_below="@id/category4"
+                        android:text="Tiền điện nước"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
+
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <RelativeLayout
+                        android:background="@drawable/shape_border_pink"
+
+                        android:layout_margin="20dp"
+                        android:id="@+id/category5"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp">
+
+                        <ImageView
+                            android:id="@+id/img5"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/item5"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/category5"
+                        android:text="Tiền nhà"
+                        android:textSize="10sp"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:background="@drawable/shape_border_red"
+
+                        android:layout_margin="20dp"
+                        android:id="@+id/category6"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp">
+
+                        <ImageView
+                            android:id="@+id/img6"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/item6"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_below="@id/category6"
+                        android:text="Tiền bảo hiểm"
+                        android:textSize="10sp"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </RelativeLayout>
+
+
+
+
+            </LinearLayout>
+
+
+        </HorizontalScrollView>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+
+
+</androidx.core.widget.NestedScrollView>

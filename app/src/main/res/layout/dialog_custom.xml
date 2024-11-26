@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    
+    <ImageView
+        android:src="@drawable/icon_x"
+        android:layout_gravity="center"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
+
+    <!-- Custom dialog title -->
+    <TextView
+        android:id="@+id/dialog_title"
+        android:text="Custom Dialog Title"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="10dp"/>
+
+    <!-- Custom input field -->
+    <EditText
+        android:id="@+id/dialog_input"
+        android:inputType="textEmailAddress"
+        android:hint="Enter your email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Custom buttons (optional) -->
+    <Button
+        android:id="@+id/dialog_button_ok"
+        android:text="OK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>
