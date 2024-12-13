@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <!-- ImageView for displaying image -->
+    <ImageView
+        android:layout_centerVertical="true"
+        android:id="@+id/ic_expense"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="8dp"/>
+
+    <!-- TextView for displaying title -->
+    <TextView
+        android:layout_toEndOf="@id/ic_expense"
+        android:id="@+id/item_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:text="Title"/>
+
+    <!-- TextView for displaying amount under the title -->
+    <TextView
+        android:id="@+id/item_amount_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_Title"
+        android:layout_toEndOf="@id/ic_expense"
+        android:text="Amount: $100"
+        android:textColor="#FF00FF"
+        android:textSize="16sp" />
+
+
+    <!-- TextView for displaying time -->
+    <TextView
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="#000000"
+        android:text="10:10 AM - 15/10/2024"/>
+    <!-- Nút Sửa -->
+
+    <!-- Nút Xoá -->
+
+    <Button
+        android:id="@+id/btn_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="105dp"
+        android:text="Edit"
+        android:textSize="12dp" />
+
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="-174dp"
+        android:layout_toLeftOf="@id/btn_edit"
+        android:text="Delete"
+        android:textSize="12dp" />
+</RelativeLayout>

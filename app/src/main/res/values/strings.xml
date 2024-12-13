@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Campus_ExpenseManager</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="expense_types">
+        <item>Income</item>
+        <item>Expense</item>
+    </string-array>
+</resources>
